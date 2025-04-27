@@ -1,12 +1,12 @@
 // MARK: Блок - Конфигурация Firebase
 const firebaseConfig = {
-    apiKey: "ТВОЙ_API_KEY",
-    authDomain: "ТВОЙ_PROJECT_ID.firebaseapp.com",
-    databaseURL: "https://ТВОЙ_PROJECT_ID.firebaseio.com",
-    projectId: "ТВОЙ_PROJECT_ID",
-    storageBucket: "ТВОЙ_PROJECT_ID.appspot.com",
-    messagingSenderId: "ТВОЙ_MESSAGING_SENDER_ID",
-    appId: "ТВОЙ_APP_ID"
+  apiKey: "AIzaSyCl5ia_vBLQ-VZziIyiGtJsBng4Z2SUW8I",
+  authDomain: "yota-report-4a391.firebaseapp.com",
+  databaseURL: "https://yota-report-4a391-default-rtdb.europe-west1.firebasedatabase.app",
+  projectId: "yota-report-4a391",
+  storageBucket: "yota-report-4a391.firebasestorage.app",
+  messagingSenderId: "401712839981",
+  appId: "1:401712839981:web:65474e9ca8bf5673a5e7a4"
 };
 
 // MARK: Блок - Инициализация Firebase
