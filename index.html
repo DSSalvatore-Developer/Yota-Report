@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <!-- MARK: Блок - Мета-данные -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Отчет Yota</title>
+    <link rel="stylesheet" href="style.css">
+
+    <!-- MARK: Блок - Подключение Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.8.1/firebase-database-compat.js"></script>
+
+    <!-- MARK: Блок - Подключение Firebase конфигурации -->
+    <script src="firebase-config.js" defer></script>
+
+    <!-- MARK: Блок - Основной JavaScript сайта -->
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+<!-- MARK: Блок - Авторизация -->
+<div id="login-screen" class="screen">
+    <h1>Авторизация</h1>
+    <input type="text" id="username" placeholder="Логин">
+    <input type="password" id="password" placeholder="Пароль">
+    <button id="login-button">Войти</button>
+
+    <button id="feedback-button" class="feedback-link">Обратная связь</button>
+</div>
+
+<!-- MARK: Блок - Обратная связь -->
+<div id="feedback-screen" class="modal hidden">
+    <div class="modal-content">
+        <span id="close-feedback" class="close-button">&times;</span>
+        <h2>Обратная связь</h2>
+        <input type="text" id="feedback-topic" placeholder="Тема">
+        <textarea id="feedback-message" placeholder="Сообщение"></textarea>
+        <input type="text" id="feedback-phone" placeholder="Контактный телефон">
+        <button id="send-feedback">Отправить</button>
+    </div>
+</div>
+
+<!-- MARK: Блок - Выбор торговой точки -->
+<div id="select-store-screen" class="screen hidden">
+    <h1>Выберите торговую точку</h1>
+    <div id="store-list"></div>
+    <input type="text" id="new-store" placeholder="Новая торговая точка (номер, город, адрес)">
+    <button id="add-store">Добавить точку</button>
+</div>
+
+<!-- MARK: Блок - Заполнение отчета -->
+<div id="report-screen" class="screen hidden">
+    <h1>Отчет по смене</h1>
+
+    <!-- MARK: Блок - Основные поля отчета -->
+    <input type="text" id="employee-name" placeholder="ФИО сотрудника">
+    <input type="date" id="report-date">
+
+    <!-- MARK: Блок - Операции за день -->
+    <h2>Операции</h2>
+    <select id="operation-type">
+        <option value="">Выберите операцию</option>
+        <option value="Продажа">Продажа</option>
+        <option value="Обслуживание">Обслуживание</option>
+        <option value="Инкассация">Инкассация</option>
+        <option value="Внесение">Внесение</option>
+        <option value="Расходы">Расходы</option>
+        <option value="Аванс|Зарплата">Аванс|Зарплата</option>
+        <option value="Платежи">Платежи</option>
+    </select>
+    <textarea id="operation-comment" placeholder="Комментарий"></textarea>
+    <input type="number" id="operation-quantity" placeholder="Количество (штук)">
+    <input type="number" id="operation-price" placeholder="Цена за единицу">
+    <div>
+        <label><input type="checkbox" id="split-payment"> Раздельная оплата</label>
+    </div>
+    <input type="number" id="cash-amount" placeholder="Наличными (₽)" class="hidden">
+    <input type="number" id="card-amount" placeholder="Картой (₽)" class="hidden">
+    <button id="add-operation">Добавить операцию</button>
+
+    <!-- MARK: Блок - Список добавленных операций -->
+    <div id="operation-list"></div>
+
+    <!-- MARK: Блок - Работа с SIM-картами -->
+    <h2>Замена SIM-карт</h2>
+    <input type="text" id="icc-number" placeholder="iCC номер">
+    <select id="sim-operator">
+        <option value="Yota">Yota</option>
+        <option value="Мегафон">Мегафон</option>
+    </select>
+    <button id="add-sim">Добавить SIM-карту</button>
+    <div id="sim-list"></div>
+
+    <!-- MARK: Блок - Отправка отчета -->
+    <button id="submit-report">Отправить отчет</button>
+</div>
+
+<!-- MARK: Блок - Просмотр отчетов -->
+<div id="view-reports-screen" class="screen hidden">
+    <h1>Просмотр отчетов</h1>
+    <input type="date" id="filter-start-date">
+    <input type="date" id="filter-end-date">
+    <input type="text" id="filter-employee" placeholder="ФИО сотрудника">
+    <input type="text" id="filter-store" placeholder="Торговая точка">
+    <button id="apply-filters">Применить фильтры</button>
+    <div id="filtered-reports"></div>
+</div>
+
+</body>
+</html>
